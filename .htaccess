@@ -1,0 +1,16 @@
+RewriteEngine On
+# Turn on the rewriting engine 
+
+RewriteBase /
+# Optional: Specify the base URL for per-directory rewrites
+
+RewriteCond %{REQUEST_FILENAME} !-f
+# Condition: The requested filename is not an existing file
+
+RewriteCond %{REQUEST_FILENAME} !-d
+# Condition: The requested filename is not an existing directory
+
+RewriteRule ^ index.php [QSA,L]
+# Rewrite all requests to index.php
+# QSA: Append query string to the rewritten URL
+# L: Last rule, stop processing other rules
